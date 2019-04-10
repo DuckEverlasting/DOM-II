@@ -171,8 +171,3 @@ function titleChange(ev) {
     title.textContent = "How Fun So Fun";
 }
 
-// UPON LOADING
-
-document.body.addEventListener("load", (el) => alert("hello are you ready to have some fun"));
-
-alert("hello are you ready to have some fun");
