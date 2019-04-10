@@ -145,15 +145,34 @@ function buttonVanish(ev) {
 
 // NAV SHENANIGANS
 
-const homeNav = document.querySelector("nav a:first-child");
-topNav.addEventListener("focusin", navShenanigans);
-topNav.addEventListener("blur", navShenanigansAlso);
+const topNav = document.querySelector("nav");
+topNav.addEventListener("mouseover", navShenanigans);
+topNav.addEventListener("click", navPrvDef);
+
+let topNavCounter = 0;
+let topNavText = ["COME", "HAVE", "SOME", "FUN"]
 
 function navShenanigans(ev) {
-    ev.target.style.color = "red"
+    if (!ev.target.matches(".nav-link")) {return};
+    ev.target.textContent = topNavText[topNavCounter];
+    topNavCounter === 3 ? topNavCounter = 0 : topNavCounter ++;
 }
 
-function navShenanigansAlso(ev) {
-    topNav.style.color = "black"
+function navPrvDef(ev) {
+    ev.preventDefault()
 }
 
+// HOW FUN VERY FUN
+
+const title = document.querySelector("h1");
+document.addEventListener("scroll", titleChange)
+
+function titleChange(ev) {
+    title.textContent = "How Fun So Fun";
+}
+
+// UPON LOADING
+
+document.body.addEventListener("load", (el) => alert("hello are you ready to have some fun"));
+
+alert("hello are you ready to have some fun");
